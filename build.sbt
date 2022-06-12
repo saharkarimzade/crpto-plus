@@ -1,12 +1,14 @@
-val scala3Version = "3.1.2"
+import Dependencies._
 
-lazy val root = project
-  .in(file("."))
+ThisBuild / scalaVersion     := "2.13.8"
+ThisBuild / version          := "0.1.0-SNAPSHOT"
+ThisBuild / organization     := "com.example"
+ThisBuild / organizationName := "example"
+
+lazy val root = (project in file("."))
   .settings(
-    name := "crypto-plus",
-    version := "0.1.0-SNAPSHOT",
-
-    scalaVersion := scala3Version,
-
-    libraryDependencies += "org.scalameta" %% "munit" % "0.7.29" % Test
+    name := "currencey-convertor",
+    libraryDependencies += scalaTest % Test
   )
+
+// See https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html for instructions on how to publish to Sonatype.
