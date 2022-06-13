@@ -1,14 +1,20 @@
-import Dependencies._
+name:="currency-conventor"
+version := "0.1"
 
-ThisBuild / scalaVersion     := "2.13.8"
-ThisBuild / version          := "0.1.0-SNAPSHOT"
-ThisBuild / organization     := "com.example"
-ThisBuild / organizationName := "example"
+scalaVersion := "2.12.8"
 
-lazy val root = (project in file("."))
-  .settings(
-    name := "currencey-convertor",
-    libraryDependencies += scalaTest % Test
-  )
+val akkaVersion = "2.5.20"
+val akkaHttpVersion = "10.1.7"
+val scalaTestVersion = "3.0.5"
 
-// See https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html for instructions on how to publish to Sonatype.
+libraryDependencies ++= Seq(
+  // akka streams
+  "com.typesafe.akka" %% "akka-stream" % akkaVersion,
+  // akka http
+  "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
+  "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
+  "com.typesafe.akka" %% "akka-http-testkit" % akkaHttpVersion,
+  // testing
+  "com.typesafe.akka" %% "akka-testkit" % akkaVersion,
+  "org.scalatest" %% "scalatest" % scalaTestVersion
+)
